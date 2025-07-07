@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -25,7 +24,7 @@ const Finance = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Navbar />
       
       <div className="relative z-10 w-full">

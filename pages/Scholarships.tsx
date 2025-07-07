@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
@@ -70,7 +69,7 @@ const Scholarships = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-white text-black">
       <Navbar />
       <div className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -83,7 +82,7 @@ const Scholarships = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-pink">
               Scholarships
             </h1>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-xl text-black/80 max-w-2xl mx-auto">
               Find national and international scholarships to fund your education and dreams.
             </p>
           </motion.div>
@@ -96,10 +95,10 @@ const Scholarships = () => {
             className="flex flex-wrap gap-4 mb-8 justify-center"
           >
             <Select value={selectedCountry} onValueChange={handleCountryChange}>
-              <SelectTrigger className="w-48 bg-white/10 border-white/20 text-white">
+              <SelectTrigger className="w-48 bg-white border-gray-300 text-black">
                 <SelectValue placeholder="Select Country" />
               </SelectTrigger>
-              <SelectContent className="bg-black/90 border-white/20 text-white">
+              <SelectContent className="bg-white border-gray-200 text-black">
                 <SelectItem value="all">All Countries</SelectItem>
                 <SelectItem value="USA">USA</SelectItem>
                 <SelectItem value="Germany">Germany</SelectItem>
@@ -109,10 +108,10 @@ const Scholarships = () => {
             </Select>
 
             <Select value={selectedType} onValueChange={handleTypeChange}>
-              <SelectTrigger className="w-48 bg-white/10 border-white/20 text-white">
+              <SelectTrigger className="w-48 bg-white border-gray-300 text-black">
                 <SelectValue placeholder="Select Type" />
               </SelectTrigger>
-              <SelectContent className="bg-black/90 border-white/20 text-white">
+              <SelectContent className="bg-white border-gray-200 text-black">
                 <SelectItem value="all">All Types</SelectItem>
                 <SelectItem value="National">National</SelectItem>
                 <SelectItem value="International">International</SelectItem>
@@ -128,37 +127,37 @@ const Scholarships = () => {
             className="grid md:grid-cols-2 gap-6"
           >
             {filteredScholarships.map((scholarship) => (
-              <Card key={scholarship.id} className="bg-gradient-to-br from-white/5 to-white/10 border-white/10 hover:border-brand-purple/40 transition-all duration-300">
+              <Card key={scholarship.id} className="bg-white border-gray-200 hover:border-brand-purple/40 transition-all duration-300 shadow-lg">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-xl font-bold text-white">{scholarship.title}</CardTitle>
+                    <CardTitle className="text-xl font-bold text-black">{scholarship.title}</CardTitle>
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                       scholarship.type === 'International' 
                         ? 'bg-brand-purple/20 text-brand-purple' 
-                        : 'bg-green-500/20 text-green-400'
+                        : 'bg-green-500/20 text-green-600'
                     }`}>
                       {scholarship.type}
                     </span>
                   </div>
-                  <CardDescription className="text-white/70">
+                  <CardDescription className="text-black/70">
                     {scholarship.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-white/80">
+                    <div className="flex items-center gap-2 text-black/80">
                       <Globe className="h-4 w-4" />
                       <span>{scholarship.country}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-white/80">
+                    <div className="flex items-center gap-2 text-black/80">
                       <DollarSign className="h-4 w-4" />
                       <span>{scholarship.amount}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-white/80">
+                    <div className="flex items-center gap-2 text-black/80">
                       <Calendar className="h-4 w-4" />
                       <span>Deadline: {scholarship.deadline}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-white/80">
+                    <div className="flex items-center gap-2 text-black/80">
                       <Users className="h-4 w-4" />
                       <span>{scholarship.eligibility}</span>
                     </div>

@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
@@ -73,18 +72,18 @@ const Blogs = () => {
   const getAuthorTypeColor = (type: string) => {
     switch (type) {
       case "Student":
-        return "bg-blue-500/20 text-blue-400";
+        return "bg-blue-500/20 text-blue-600";
       case "Founder":
         return "bg-brand-purple/20 text-brand-purple";
       case "Expert":
-        return "bg-green-500/20 text-green-400";
+        return "bg-green-500/20 text-green-600";
       default:
-        return "bg-gray-500/20 text-gray-400";
+        return "bg-gray-500/20 text-gray-600";
     }
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-white text-black">
       <Navbar />
       <div className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -97,7 +96,7 @@ const Blogs = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-pink">
               Blogs
             </h1>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-xl text-black/80 max-w-2xl mx-auto">
               Discover insights, tips, and stories from students, entrepreneurs, and industry experts.
             </p>
           </motion.div>
@@ -110,12 +109,12 @@ const Blogs = () => {
             className="flex justify-center mb-8"
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-md">
-              <TabsList className="grid w-full grid-cols-2 bg-white/10">
-                <TabsTrigger value="newest" className="data-[state=active]:bg-brand-purple">
+              <TabsList className="grid w-full grid-cols-2 bg-gray-100">
+                <TabsTrigger value="newest" className="data-[state=active]:bg-brand-purple data-[state=active]:text-white">
                   <Calendar className="h-4 w-4 mr-2" />
                   Newest
                 </TabsTrigger>
-                <TabsTrigger value="popular" className="data-[state=active]:bg-brand-purple">
+                <TabsTrigger value="popular" className="data-[state=active]:bg-brand-purple data-[state=active]:text-white">
                   <TrendingUp className="h-4 w-4 mr-2" />
                   Popular
                 </TabsTrigger>
@@ -131,26 +130,26 @@ const Blogs = () => {
             className="grid md:grid-cols-2 gap-6"
           >
             {sortedBlogs.map((blog) => (
-              <Card key={blog.id} className="bg-gradient-to-br from-white/5 to-white/10 border-white/10 hover:border-brand-purple/40 transition-all duration-300">
+              <Card key={blog.id} className="bg-white border-gray-200 hover:border-brand-purple/40 transition-all duration-300 shadow-lg">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
                     <span className="px-2 py-1 rounded-full text-xs font-medium bg-brand-pink/20 text-brand-pink">
                       {blog.category}
                     </span>
                     {blog.isPopular && activeTab === "popular" && (
-                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-yellow-500/20 text-yellow-400 flex items-center gap-1">
+                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-yellow-500/20 text-yellow-600 flex items-center gap-1">
                         <TrendingUp className="h-3 w-3" />
                         Trending
                       </span>
                     )}
                   </div>
-                  <CardTitle className="text-xl font-bold text-white mb-2">{blog.title}</CardTitle>
-                  <CardDescription className="text-white/70">
+                  <CardTitle className="text-xl font-bold text-black mb-2">{blog.title}</CardTitle>
+                  <CardDescription className="text-black/70">
                     {blog.excerpt}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex items-center justify-between text-sm text-white/60 mb-4">
+                  <div className="flex items-center justify-between text-sm text-black/60 mb-4">
                     <div className="flex items-center gap-2">
                       <User className="h-4 w-4" />
                       <span>{blog.author}</span>
@@ -164,7 +163,7 @@ const Blogs = () => {
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-white/60 text-sm">{blog.views} views</span>
+                    <span className="text-black/60 text-sm">{blog.views} views</span>
                     <Button className="bg-gradient-to-r from-brand-purple to-brand-pink hover:opacity-90">
                       Read More
                     </Button>

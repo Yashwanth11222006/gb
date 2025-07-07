@@ -9,10 +9,10 @@
     --color-secondary: 236 72 153;
     --color-secondary-dark: 219 39 119;
     --color-accent: 249 115 22;
-    --color-background-dark: 17 24 39;
-    --color-background-light: 249 250 251;
-    --color-text-dark: 31 41 55;
-    --color-text-light: 243 244 246;
+    --color-background-dark: 249 250 251;
+    --color-background-light: 17 24 39;
+    --color-text-dark: 243 244 246;
+    --color-text-light: 31 41 55;
   }
 
   * {
@@ -27,7 +27,7 @@
   }
 
   body {
-    @apply font-sans antialiased text-white bg-black transition-colors duration-200;
+    @apply font-sans antialiased text-black bg-white transition-colors duration-200;
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-overflow-scrolling: touch;
   }
@@ -38,7 +38,7 @@
   h4,
   h5,
   h6 {
-    @apply font-bold tracking-tight;
+    @apply font-bold tracking-tight text-black;
   }
 
   h1 {
@@ -58,22 +58,22 @@
     @apply max-w-full px-3 sm:px-4 lg:px-6 xl:px-8;
   }
 
-  /* Scrollbar styling for dark theme */
+  /* Scrollbar styling for light theme */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-black/20;
+    @apply bg-gray-100;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-white/20 rounded-full;
+    @apply bg-gray-400 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-white/30;
+    @apply bg-gray-500;
   }
 }
 
@@ -87,7 +87,7 @@
   }
 
   .glass-card {
-    @apply bg-white/5 backdrop-blur-lg rounded-xl shadow-lg border border-white/10 transition-all duration-300 hover:shadow-xl hover:border-brand-purple/50;
+    @apply bg-white/90 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-purple/50;
   }
 
   .btn-primary {
@@ -95,7 +95,7 @@
   }
 
   .btn-secondary {
-    @apply bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2;
+    @apply bg-gray-100 text-black font-semibold py-3 px-6 rounded-lg border border-gray-300 hover:bg-gray-200 hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2;
   }
 
   .section-padding {
@@ -180,7 +180,7 @@
   input,
   textarea,
   select {
-    @apply bg-white/5 border-white/10 text-white placeholder:text-white/50 focus:border-brand-purple/50 focus:ring-brand-purple/20;
+    @apply bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-brand-purple/50 focus:ring-brand-purple/20;
   }
 
   /* Card hover effects */
@@ -244,7 +244,7 @@
 
   /* Better text sizing for mobile readability */
   p {
-    @apply text-sm sm:text-base leading-relaxed;
+    @apply text-sm sm:text-base leading-relaxed text-black;
   }
 
   /* Improve form elements on mobile */

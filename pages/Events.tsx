@@ -90,13 +90,13 @@ const Events = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background overflow-hidden">
+    <div className="min-h-screen bg-white overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
-        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-foreground/20 to-transparent" />
-        <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-foreground/20 to-transparent" />
+        <div className="absolute inset-0 bg-grid-black/[0.02] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/20 to-transparent" />
+        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-brand-purple/20 to-transparent" />
+        <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-brand-purple/20 to-transparent" />
       </div>
       
       <Navbar />
@@ -117,7 +117,7 @@ const Events = () => {
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-pink">
                   Next-Gen Events
                 </h1>
-                <p className="text-lg md:text-xl mb-8 text-foreground/80 max-w-2xl">
+                <p className="text-lg md:text-xl mb-8 text-black/80 max-w-2xl">
                   Discover cutting-edge hackathons, workshops, and learning opportunities across the digital frontier.
                 </p>
               </div>
@@ -145,11 +145,11 @@ const Events = () => {
                   initial={{ scale: 0.95, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.95, opacity: 0 }}
-                  className="bg-background border border-white/10 rounded-xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto"
+                  className="bg-white border border-gray-200 rounded-xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-2xl font-bold">Host New Event</h2>
+                    <h2 className="text-2xl font-bold text-black">Host New Event</h2>
                     <Button variant="ghost" size="sm" onClick={() => setShowHostForm(false)}>
                       <X size={20} />
                     </Button>
@@ -161,28 +161,28 @@ const Events = () => {
                     handleHostEvent(Object.fromEntries(formData));
                   }} className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">Event Title</label>
+                      <label className="block text-sm font-medium mb-2 text-black">Event Title</label>
                       <Input name="title" placeholder="Enter event title" required />
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium mb-2">Date</label>
+                        <label className="block text-sm font-medium mb-2 text-black">Date</label>
                         <Input name="date" type="date" required />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2">Time</label>
+                        <label className="block text-sm font-medium mb-2 text-black">Time</label>
                         <Input name="time" type="time" required />
                       </div>
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium mb-2">Location</label>
+                      <label className="block text-sm font-medium mb-2 text-black">Location</label>
                       <Input name="location" placeholder="City or 'Online'" required />
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium mb-2">Event Type</label>
+                      <label className="block text-sm font-medium mb-2 text-black">Event Type</label>
                       <Select name="type" required>
                         <SelectTrigger>
                           <SelectValue placeholder="Select event type" />
@@ -198,7 +198,7 @@ const Events = () => {
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium mb-2">Description</label>
+                      <label className="block text-sm font-medium mb-2 text-black">Description</label>
                       <Textarea name="description" placeholder="Describe your event" rows={3} required />
                     </div>
                     
@@ -216,19 +216,19 @@ const Events = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="backdrop-blur-lg bg-background/30 border border-white/10 rounded-xl p-4 mb-8"
+            className="backdrop-blur-lg bg-white/80 border border-gray-200 rounded-xl p-4 mb-8"
           >
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <div className="flex items-center gap-2 text-foreground/70">
+              <div className="flex items-center gap-2 text-black/70">
                 <FilterIcon size={18} className="text-brand-purple" />
                 <span className="text-sm">Filter events:</span>
               </div>
               <div className="flex flex-wrap gap-4">
                 <Select value={city} onValueChange={setCity}>
-                  <SelectTrigger className="w-[160px] bg-background/50 border-white/10">
+                  <SelectTrigger className="w-[160px] bg-white/80 border-gray-200">
                     <SelectValue placeholder="Filter by location" />
                   </SelectTrigger>
-                  <SelectContent className="bg-background/80 backdrop-blur-md border-white/10">
+                  <SelectContent className="bg-white border-gray-200">
                     <SelectItem value="all">All Locations</SelectItem>
                     <SelectItem value="online">Online</SelectItem>
                     <SelectItem value="Mumbai">Mumbai</SelectItem>
@@ -239,10 +239,10 @@ const Events = () => {
                 </Select>
 
                 <Select value={eventType} onValueChange={setEventType}>
-                  <SelectTrigger className="w-[160px] bg-background/50 border-white/10">
+                  <SelectTrigger className="w-[160px] bg-white/80 border-gray-200">
                     <SelectValue placeholder="Filter by type" />
                   </SelectTrigger>
-                  <SelectContent className="bg-background/80 backdrop-blur-md border-white/10">
+                  <SelectContent className="bg-white border-gray-200">
                     <SelectItem value="all">All Types</SelectItem>
                     <SelectItem value="tech">Tech</SelectItem>
                     <SelectItem value="startup">Startup</SelectItem>
@@ -262,7 +262,7 @@ const Events = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             <Tabs defaultValue="list" className="mb-8">
-              <TabsList className="bg-background/30 backdrop-blur-sm border border-white/10">
+              <TabsList className="bg-white/80 border border-gray-200">
                 <TabsTrigger value="list" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-brand-purple/90 data-[state=active]:to-brand-pink/90 data-[state=active]:text-white">List View</TabsTrigger>
                 <TabsTrigger value="calendar" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-brand-purple/90 data-[state=active]:to-brand-pink/90 data-[state=active]:text-white">Calendar View</TabsTrigger>
               </TabsList>
@@ -289,7 +289,7 @@ const Events = () => {
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0, transition: { duration: 0.5 }}
                       }}
-                      className="rounded-xl overflow-hidden bg-background/5 backdrop-blur-lg border border-white/10 hover:border-white/20 transition-all duration-300"
+                      className="rounded-xl overflow-hidden bg-white/90 backdrop-blur-lg border border-gray-200 hover:border-brand-purple/40 transition-all duration-300"
                     >
                       <div className="flex flex-col md:flex-row">
                         <div 
@@ -307,14 +307,14 @@ const Events = () => {
                                   <Sparkles size={12} className="mr-1" />
                                   {event.type}
                                 </div>
-                                <div className="text-sm font-medium px-3 py-1 rounded-full bg-primary/10 text-primary">
+                                <div className="text-sm font-medium px-3 py-1 rounded-full bg-green-100 text-green-700">
                                   {event.daysLeft} days left
                                 </div>
                               </div>
                               
-                              <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-brand-purple transition-colors">{event.title}</h3>
+                              <h3 className="text-xl font-semibold mb-2 text-black group-hover:text-brand-purple transition-colors">{event.title}</h3>
                               
-                              <div className="flex flex-wrap gap-y-2 gap-x-4 text-sm text-foreground/70 mb-3">
+                              <div className="flex flex-wrap gap-y-2 gap-x-4 text-sm text-black/70 mb-3">
                                 <div className="flex items-center gap-1">
                                   <Calendar size={14} className="text-brand-purple" />
                                   <span>{event.date}</span>
@@ -333,7 +333,7 @@ const Events = () => {
                                 </div>
                               </div>
                               
-                              <p className="text-foreground/80">{event.description}</p>
+                              <p className="text-black/80">{event.description}</p>
                             </div>
                             
                             <div className="flex flex-col items-end gap-2">
@@ -358,8 +358,8 @@ const Events = () => {
                       className="text-center py-20"
                     >
                       <div className="text-6xl mb-4">🔍</div>
-                      <h3 className="text-xl font-semibold mb-2">No events found</h3>
-                      <p className="text-foreground/70">Try adjusting your filters</p>
+                      <h3 className="text-xl font-semibold mb-2 text-black">No events found</h3>
+                      <p className="text-black/70">Try adjusting your filters</p>
                     </motion.div>
                   )}
                 </motion.div>
@@ -370,7 +370,7 @@ const Events = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="bg-background/5 backdrop-blur-lg border border-white/10 rounded-xl overflow-hidden"
+                  className="bg-white/90 backdrop-blur-lg border border-gray-200 rounded-xl overflow-hidden"
                 >
                   <div className="p-8">
                     <div className="flex items-center justify-center space-x-4 mb-8">
@@ -378,7 +378,7 @@ const Events = () => {
                         <Calendar className="mr-2 h-4 w-4" />
                         <span>Previous</span>
                       </Button>
-                      <h3 className="text-xl font-semibold">June 2025</h3>
+                      <h3 className="text-xl font-semibold text-black">June 2025</h3>
                       <Button variant="outline" size="sm">
                         <span>Next</span>
                         <Calendar className="ml-2 h-4 w-4" />
@@ -387,7 +387,7 @@ const Events = () => {
                     
                     <div className="grid grid-cols-7 gap-1">
                       {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-                        <div key={day} className="text-center text-xs font-medium text-foreground/60 p-2">{day}</div>
+                        <div key={day} className="text-center text-xs font-medium text-black/60 p-2">{day}</div>
                       ))}
                       
                       {Array.from({ length: 35 }).map((_, i) => {
@@ -398,13 +398,13 @@ const Events = () => {
                           <motion.div 
                             key={i} 
                             className={`
-                              border border-white/5 rounded-md p-2 min-h-[70px] relative
+                              border border-gray-200 rounded-md p-2 min-h-[70px] relative
                               ${day < 1 || day > 30 ? 'opacity-30' : ''}
-                              ${hasEvent ? 'bg-brand-purple/10' : 'hover:bg-white/5'}
+                              ${hasEvent ? 'bg-brand-purple/10' : 'hover:bg-gray-50'}
                             `}
                             whileHover={{ scale: 1.03 }}
                           >
-                            <div className="text-xs">{day < 1 ? 31 + day : day > 30 ? day - 30 : day}</div>
+                            <div className="text-xs text-black">{day < 1 ? 31 + day : day > 30 ? day - 30 : day}</div>
                             {hasEvent && (
                               <div className="absolute bottom-1 left-1 right-1">
                                 <div className="text-[10px] bg-brand-purple/20 text-brand-purple rounded px-1 py-0.5 truncate">
@@ -418,7 +418,7 @@ const Events = () => {
                     </div>
                     
                     <div className="text-center mt-8">
-                      <p className="text-sm text-foreground/70">
+                      <p className="text-sm text-black/70">
                         Calendar view is available for preview. Upcoming feature: Event details on click.
                       </p>
                     </div>

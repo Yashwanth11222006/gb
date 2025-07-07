@@ -51,7 +51,7 @@ const Index = () => {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
@@ -66,16 +66,16 @@ const Index = () => {
       variants={pageVariants}
       initial="initial"
       animate="animate"
-      className="min-h-screen text-white overflow-x-hidden"
+      className="min-h-screen text-black overflow-x-hidden"
     >
-      {/* Black background moved to the farthest back for animation visibility */}
-      <div className="fixed inset-0 -z-50 bg-black" />
+      {/* White background moved to the farthest back for animation visibility */}
+      <div className="fixed inset-0 -z-50 bg-white" />
       {/* Enhanced Animated background */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         {/* Grid pattern with animation */}
         <motion.div
           style={{ y: backgroundY }}
-          className="absolute inset-0 bg-grid-white/[0.02] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+          className="absolute inset-0 bg-grid-black/[0.02] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)]"
         />
 
         {/* Animated border lines */}
@@ -127,12 +127,12 @@ const Index = () => {
         {/* Enhanced animated glow spots with parallax */}
         <motion.div
           style={{ y: glowY1 }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full blur-3xl opacity-30"
+          className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full blur-3xl opacity-10"
           animate={{
             background: [
-              "radial-gradient(circle, rgba(209, 58, 255, 0.2), transparent)",
-              "radial-gradient(circle, rgba(255, 77, 160, 0.3), transparent)",
-              "radial-gradient(circle, rgba(209, 58, 255, 0.2), transparent)",
+              "radial-gradient(circle, rgba(209, 58, 255, 0.1), transparent)",
+              "radial-gradient(circle, rgba(255, 77, 160, 0.15), transparent)",
+              "radial-gradient(circle, rgba(209, 58, 255, 0.1), transparent)",
             ],
             scale: [1, 1.2, 1],
           }}
@@ -143,12 +143,12 @@ const Index = () => {
         />
         <motion.div
           style={{ y: glowY2 }}
-          className="absolute bottom-1/3 right-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full blur-3xl opacity-30"
+          className="absolute bottom-1/3 right-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full blur-3xl opacity-10"
           animate={{
             background: [
-              "radial-gradient(circle, rgba(255, 77, 160, 0.2), transparent)",
-              "radial-gradient(circle, rgba(209, 58, 255, 0.3), transparent)",
-              "radial-gradient(circle, rgba(255, 77, 160, 0.2), transparent)",
+              "radial-gradient(circle, rgba(255, 77, 160, 0.1), transparent)",
+              "radial-gradient(circle, rgba(209, 58, 255, 0.15), transparent)",
+              "radial-gradient(circle, rgba(255, 77, 160, 0.1), transparent)",
             ],
             scale: [1.2, 1, 1.2],
           }}
@@ -162,7 +162,7 @@ const Index = () => {
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-white/10 rounded-full"
+            className="absolute w-2 h-2 bg-black/10 rounded-full"
             style={{
               left: `${20 + i * 15}%`,
               top: `${30 + i * 10}%`,
@@ -191,9 +191,9 @@ const Index = () => {
             width: '120vw',
             height: '60vh',
             borderRadius: '50% 50% 0 0/100% 100% 0 0',
-            background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.25) 0%, rgba(236,72,153,0.18) 40%, rgba(17,24,39,0.01) 80%)',
+            background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.08) 0%, rgba(236,72,153,0.05) 40%, rgba(249,250,251,0.01) 80%)',
             filter: 'blur(32px)',
-            boxShadow: '0 0 120px 60px #8B5CF6, 0 0 240px 120px #EC4899',
+            boxShadow: '0 0 120px 60px rgba(139,92,246,0.05), 0 0 240px 120px rgba(236,72,153,0.03)',
             opacity: 0.85,
           }}
         />
@@ -201,7 +201,7 @@ const Index = () => {
         {[...Array(18)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-white/20 shadow-lg"
+            className="absolute rounded-full bg-black/10 shadow-lg"
             style={{
               width: `${1.5 + Math.random() * 2.5}px`,
               height: `${1.5 + Math.random() * 2.5}px`,
@@ -211,7 +211,7 @@ const Index = () => {
             }}
             animate={{
               y: [0, -10 - Math.random() * 20, 0],
-              opacity: [0.5, 1, 0.5],
+              opacity: [0.3, 0.6, 0.3],
             }}
             transition={{
               duration: 8 + Math.random() * 6,
